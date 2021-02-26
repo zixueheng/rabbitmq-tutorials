@@ -50,7 +50,7 @@ err = ch.ExchangeDeclare(
 >
 > 前面的教程中我们对交换机一无所知，但仍然能够发送消息到队列中。因为我们使用了命名为空字符串("")的匿名交换机。 回想我们之前是如何发布一则消息：
 >
-> ```
+> ```go
 >  err = ch.Publish(
 >   "",     // exchange
 >   q.Name, // routing key

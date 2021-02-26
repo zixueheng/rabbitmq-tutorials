@@ -23,11 +23,11 @@ func main() {
 
 	q, err := ch.QueueDeclare(
 		"hello", // name
-		false,   // durable
-		false,   // delete when unused
-		false,   // exclusive
+		false,   // durable 消息代理重启后，队列依旧存在
+		false,   // delete when unused 当最后一个消费者退订后即被删除
+		false,   // exclusive 只被一个连接（connection）使用，而且当连接关闭后队列即被删除
 		false,   // no-wait
-		nil,     // arguments
+		nil,     // arguments 一些消息代理用他来完成类似与TTL的某些额外功能
 	)
 	failOnError(err, "Failed to declare a queue")
 

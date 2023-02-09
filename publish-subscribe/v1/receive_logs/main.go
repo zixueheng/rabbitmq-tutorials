@@ -14,6 +14,8 @@ func failOnError(err error, msg string) {
 
 // 可以开启多个接受者并建立各自队列绑定到logs交换机
 // 生产者发送的消息会通过logs交换机广播到所有队列
+// $ go run main.go > logs_from_rabbit.log
+// $ go run main.go
 func main() {
 	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")
 	failOnError(err, "Failed to connect to RabbitMQ")
@@ -37,8 +39,8 @@ func main() {
 	q, err := ch.QueueDeclare( // 非持久化队列，当消费者断开，队列自动删除
 		"",    // name 这里会自动生成队列名
 		false, // durable
-		false, // delete when unused
-		true,  // exclusive
+		false, // delete when unused  当最后一个消费者取消订阅时，删除至少有一个消费者的队列
+		true,  // exclusive 仅由一个连接使用，该连接关闭时队列将被删除
 		false, // no-wait
 		nil,   // arguments
 	)

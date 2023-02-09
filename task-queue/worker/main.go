@@ -40,7 +40,7 @@ func main() {
 	err = ch.Qos(
 		1,     // prefetch count 当预取计数大于零时，服务器将在收到确认之前将这些消息传递给消费者。当使用者使用noAck启动时，服务器忽略此选项，因为不需要或不发送确认。
 		0,     // prefetch size 当预取大小大于零时，服务器将尝试在接收来自消费者的确认之前，将至少保持多个字节的传递刷新到网络。当消费者使用noAck启动时，将忽略此选项。
-		false, // global 当global为true时，这些Qos设置将应用于同一连接上所有通道上的所有现有和未来使用者。如果为false，则Channel.Qos设置将应用于此频道上的所有现有和将来的使用者。
+		false, // global 当global为true时，这些Qos设置将应用于同一连接上所有通道上的所有现有和未来使用者。如果为false，则Channel.Qos设置将应用于此通道上的所有现有和将来的使用者。
 	)
 	failOnError(err, "Failed to set QoS")
 

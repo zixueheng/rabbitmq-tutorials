@@ -1,3 +1,11 @@
+/*
+ * @Description: The program is written by the author, if modified at your own risk.
+ * @Author: heyongliang
+ * @Email: 356126067@qq.com
+ * @Phone: 15215657185
+ * @Date: 2020-11-25 16:12:07
+ * @LastEditTime: 2021-08-12 10:09:33
+ */
 package main
 
 import (
@@ -39,7 +47,7 @@ func main() {
 	err = ch.Publish(
 		"logs", // exchange // 将消息发送到上面命名的交换机
 		"",     // routing key
-		false,  // mandatory
+		false,  // mandatory 强制的
 		false,  // immediate
 		amqp.Publishing{
 			ContentType: "text/plain",

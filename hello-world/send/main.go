@@ -1,3 +1,11 @@
+/*
+ * @Description: The program is written by the author, if modified at your own risk.
+ * @Author: heyongliang
+ * @Email: 356126067@qq.com
+ * @Phone: 15215657185
+ * @Date: 2020-11-20 15:33:33
+ * @LastEditTime: 2021-08-10 11:19:37
+ */
 package main
 
 import (
@@ -31,7 +39,7 @@ func main() {
 	)
 	failOnError(err, "Failed to declare a queue")
 
-	body := "你好!...."
+	body := "发发发"
 	err = ch.Publish(
 		"",     // exchange
 		q.Name, // routing key

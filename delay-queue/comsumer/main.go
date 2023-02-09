@@ -12,6 +12,11 @@ func failOnError(err error, msg string) {
 	}
 }
 
+/**
+  消息	        队列         过期    交换机      队列
+  message	->  test_delay   ->      logs  ->   test_logs
+*/
+
 func main() {
 	// 建立链接
 	conn, err := amqp.Dial("amqp://guest:guest@localhost:5672/")

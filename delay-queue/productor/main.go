@@ -1,3 +1,11 @@
+/*
+ * @Description: The program is written by the author, if modified at your own risk.
+ * @Author: heyongliang
+ * @Email: 356126067@qq.com
+ * @Phone: 15215657185
+ * @Date: 2021-02-26 15:00:50
+ * @LastEditTime: 2023-02-06 11:34:24
+ */
 package main
 
 import (
@@ -33,7 +41,7 @@ func main() {
 		amqp.Publishing{
 			ContentType: "text/plain",
 			Body:        []byte(body),
-			Expiration:  "5000", // 设置五秒的过期时间
+			Expiration:  "10000", // 设置10秒的过期时间
 		})
 	failOnError(err, "Failed to publish a message")
 
